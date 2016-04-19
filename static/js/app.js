@@ -99,7 +99,7 @@ function init_colorizer(segment) {
     $('#' + segment.name + '-colorz a').removeClass("selected");
     $(this).addClass("selected");
     $(segment.name).css("color", $(this).attr("href"));
-    $("#" + segment.name + "-first").css("color", $(this).attr("href"));
+    $("#" + segment.name + "-first").css("color", $(this).css('color'));
     $("#" + segment.name + "-first").attr("class", $(this).attr("class"));
 
     // Set new color in the object
@@ -154,6 +154,7 @@ $(function () {
 
   fgPicker.on('changeColor', function(e) {
       $('body')[0].style.color = e.color.toHex();
+      $('.NC').css('color', e.color.toHex());
   });
 
   bgPicker.on('changeColor', function(e) {
@@ -162,6 +163,7 @@ $(function () {
 
   $('#reset-colors').click(function(){
     $('body').css({ 'background-color': '#272b30', 'color': '#c8c8c8'});
+    $('.NC').css({ 'color': '#c8c8c8'});
   });
 
 });
