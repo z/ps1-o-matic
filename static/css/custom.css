@@ -1,0 +1,109 @@
+:active, :focus { outline: none; }
+
+body {
+    font-family: courier;
+    font-weight: bold;
+}
+
+.ps1-brand {
+    font-family: courier;
+    font-weight: bold;
+}
+
+#ps1-output, #ps1-bash-output {
+    background: #111;
+    color: #ccc;
+    border-color: #555;
+}
+
+#reset-colors {
+    margin-top: 20px;
+}
+
+#ps1-generator {
+    min-height: 300px;
+    font-size: 22px;
+}
+
+#alias-outputs {
+    margin: 20px 0;
+}
+
+.segment, .segment ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.segment {
+    z-index: 100;
+}
+
+.segment li {
+    float: left;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.segment li a, .segment li a:link, .segment li a:active, .segment li a:visited {
+    line-height: 28px;
+    display: block;
+    white-space: pre;
+    padding: 0;
+    text-decoration: none;
+}
+
+.segment ul {
+    list-style: none;
+    padding: 0 15px;
+    top: 25px;
+    opacity: 0.1;
+}
+
+.segment li:hover ul, .segment li.sfHover ul {
+    opacity: 1;
+}
+
+.segment ul li {
+    float: none;
+}
+
+.segment ul a {
+    font-family: courier;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#color-selectors ul {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#color-selectors li:hover ul a {
+    z-index: 10;
+}
+
+#color-selectors li:hover ul a:hover {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    opacity: 1;
+    transform: scale(2);
+    z-index: 1000;
+}
+
+#color-selectors li li a.selected {
+    background-color: #999;
+    text-align: center;
+}
+
+#color-selectors li:hover li a.selected, #color-selectors li li:hover a.selected {
+    background-color: #000;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 10px;
+}
