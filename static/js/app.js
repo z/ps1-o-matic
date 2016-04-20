@@ -73,7 +73,7 @@ function group(name, colorscheme, segments) {
 function output_zcolors() {
   var r = "";
   for (var name in this.segments) {
-    r += '\\[${' + segments[name].color + '\\]}' + segments[name].code;
+    r += '\\[${' + segments[name].color + '}\\]' + segments[name].code;
   }
   return r;
 }
