@@ -88,15 +88,23 @@ function output_bash() {
 
 // build the color selector and actions of it
 function init_colorizer(segment) {
-  $("#color-selectors").append('<li><a href="' + tango.NC + '" id="' + segment.name + '-first">' + segment.output + '</a>\n<ul id="' + segment.name + '-colorz" class="segment"></ul></li>');
+
+  $("#color-selectors")
+    .append('<li>' +
+      '<a href="' + tango.NC + '" id="' + segment.name + '-first">' +
+      segment.output + '</a>' +
+      '<ul id="' + segment.name + '-color" class="segment"></ul>' +
+    '</li>');
+  
   // build select boxes
   for (var name in tango) {
-    $('#' + segment.name + '-colorz').append('<li><a href="' + tango[name] + '" class="' + name + '" title="' + name + '">' + segment.output + '</a></li>');
-    $('#' + segment.name + '-colorz li:last-child a').css("color", tango[name]);
+    $('#' + segment.name + '-color').append('<li><a href="' + tango[name] + '" class="' + name + '" title="' + name + '">' + segment.output + '</a></li>');
+    $('#' + segment.name + '-color li:last-child a').css("color", tango[name]);
   }
+
   // set change action
-  $('#' + segment.name + '-colorz a').click(function () {
-    $('#' + segment.name + '-colorz a').removeClass("selected");
+  $('#' + segment.name + '-color a').click(function () {
+    $('#' + segment.name + '-color a').removeClass("selected");
     $(this).addClass("selected");
     $(segment.name).css("color", $(this).attr("href"));
     $("#" + segment.name + "-first").css("color", $(this).css('color'));
@@ -109,17 +117,30 @@ function init_colorizer(segment) {
     $('#ps1-output').val('PS1="' + ps1.output_zcolors() + '"');
     $('#ps1-bash-output').val('PS1="' + ps1.output_bash() + '"');
   });
-  random_color(segment.name);
+
+  if (segment.name == 'text_output') {
+    set_color(segment.name, 0);
+  } else {
+    random_color(segment.name);
+  }
+
 }
 
 function random_color(name) {
-  r = Math.ceil(Math.random() * Object.size(bash_colors));
-  $('#' + name + '-colorz li:nth-child(' + r + ') a').addClass("selected").click();
+  var r = Math.ceil(Math.random() * Object.size(bash_colors));
+  $('#' + name + '-color li:eq(' + r + ') a').addClass("selected").click();
 }
 
+function set_color(name, color) {
+  $('#' + name + '-color li:eq(' + color + ') a').addClass("selected").click();
+}
 function random_colors() {
   for (var name in segments) {
-    random_color(name);
+    if (name == 'text_output') {
+      set_color(name, 0);
+    } else {
+      random_color(name);
+    }
   }
 }
 
@@ -136,7 +157,8 @@ var segments = {
 var ps1 = new group("PS1", tango, segments);
 
 $(function () {
-  // initalize all colorizers as defined by var things
+
+  // initalize all colorizers
   for (var name in segments) {
     init_colorizer(segments[name]);
   }
@@ -153,16 +175,15 @@ $(function () {
   var bgPicker = $('#background-picker').colorpicker();
 
   fgPicker.on('changeColor', function(e) {
-      $('body')[0].style.color = e.color.toHex();
-      $('.NC').css('color', e.color.toHex());
+    $('.NC').css('color', e.color.toHex());
   });
 
   bgPicker.on('changeColor', function(e) {
-      $('body')[0].style.backgroundColor = e.color.toHex();
+    $('#ps1-generator').css('backgroundColor', e.color.toHex());
   });
 
   $('#reset-colors').click(function(){
-    $('body').css({ 'background-color': '#272b30', 'color': '#c8c8c8'});
+    $('#ps1-generator').css({ 'background-color': '#000000', 'color': '#c8c8c8'});
     $('.NC').css({ 'color': '#c8c8c8'});
   });
 
