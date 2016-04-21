@@ -29,6 +29,16 @@ body {
     margin-top: 20px;
 }
 
+.expander {
+    width: 300px;
+    -webkit-transition: all .5s ease;
+   -moz-transition: all .5s ease;
+   transition: all .5s ease;
+}
+.expander:focus {
+    width: 100%;
+}
+
 #ps1-generator {
     font-family: courier;
     font-weight: bold;
@@ -116,6 +126,10 @@ body {
 
 #color-selectors li:hover li a.selected, #color-selectors li li:hover a.selected {
     background-color: #000;
+}
+
+.tab-pane {
+    padding:20px 5px;
 }
 
 footer {

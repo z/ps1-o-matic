@@ -10,7 +10,7 @@
 
     <title>PS1-O-MATIC</title>
 
-    <link href="./static/vendor/bootstrap/bootstrap-darkly.min.css" rel="stylesheet">
+    <link href="./static/vendor/bootstrap/css/bootstrap-darkly.min.css" rel="stylesheet">
     <link href="./static/vendor/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
     <link href="./static/fonts/icomoon-ps1omatic/style.css" rel="stylesheet">
 
@@ -68,15 +68,33 @@
          </div><!-- .row -->
 
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col-xs-9">
 
             <div id="alias-outputs">
 
-              <h4>standard bash escape codes</h4>
-              <input type="text" id="ps1-bash-output" class="form-control input-md dark-input" value=""/>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#bash" aria-controls="bash" role="tab" data-toggle="tab">bash escape codes</a></li>
+                <li role="presentation"><a href="#zbash" aria-controls="zbash" role="tab" data-toggle="tab">.z/bash_colors</a></li>
+              </ul>
 
-              <h4>.z/<a href="http://github.com/z/dotfiles/blob/master/.bash_aliases" target="_blank">bash_colors</a></h4>
-              <input type="text" id="ps1-output" class="form-control input-md dark-input" value=""/>
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="bash">
+                  <input type="text" id="ps1-bash-output" class="form-control input-md dark-input expander" value=""/>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="zbash">
+                  <input type="text" id="ps1-output" class="form-control input-md dark-input expander" value=""/>
+                  <h4>Human readable color aliases for bash, available in my <a href="http://github.com/z/dotfiles/blob/master/.bash_aliases" target="_blank">.bash_aliases</a></h4>
+                </div>
+              </div>
+
+            </div>
+
+            <div>
+
+
+
 
             </div>
 
@@ -101,6 +119,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="static/vendor/jquery/jquery.min.js"><\/script>')</script>
+    <script type="text/javascript" src="./static/vendor/bootstrap/js/bootstrap-custom.min.js"></script>
     <script type="text/javascript" src="./static/vendor/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
     <script type="text/javascript" src="./static/js/app.js"></script>
   </body>
