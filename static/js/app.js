@@ -163,7 +163,7 @@ $(function () {
   $("#color-selectors")
     .append('<li class="lookup">' +
       '<a href="" id="' + lookup + '-first" class="text-center">' +
-      'index' + '</a>' +
+      'colors' + '</a>' +
       '<ul id="' + lookup + '-color" class="segment"></ul>' +
     '</li>');
 
