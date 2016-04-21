@@ -45,66 +45,56 @@
               <button id="random-colors" class="btn btn-lg btn-primary">Random PS1 Colors <i class="icon icon-shuffle"></i> </button>
             </div>
 
-            <div id="info" class="well">
-              <p>Use the inputs below to match the foreground (no color, NC) and background colors to match your terminal's environment.</p>
-              <p>The color palette being shown is Tango.</p>
-            </div>
+            <h4 class="text-center">Environment</h4>
 
-            <div class="row">
-              <div class="col-md-6">
-                <label>Foreground</label>
-                <input id="foreground-picker" type="text" class="form-control dark-input" value="#c8c8c8" />
+            <div class="well">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <label>Foreground</label>
+                  <input id="foreground-picker" type="text" class="form-control dark-input" value="#c8c8c8" />
+                </div>
+                <div class="col-md-6">
+                  <label>Background</label>
+                  <input id="background-picker" type="text" class="form-control dark-input" value="#272b30" />
+                </div>
               </div>
-              <div class="col-md-6">
-                <label>Background</label>
-                <input id="background-picker" type="text" class="form-control dark-input" value="#272b30" />
+
+              <div class="text-center">
+                <button id="reset-colors" class="btn btn-sm btn-default">Reset ENV Colors <i class="icon icon-undo"></i></button>
               </div>
+
             </div>
-
-            <div class="text-center">
-              <button id="reset-colors" class="btn btn-sm btn-default">Reset ENV Colors <i class="icon icon-undo"></i></button>
-            </div>
-
-          </div><!-- .col -->
-         </div><!-- .row -->
-
-        <div class="row">
-          <div class="col-xs-9">
 
             <div id="alias-outputs">
 
+              <h4 class="text-center">Generated PS1</h4>
+
               <!-- Nav tabs -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#bash" aria-controls="bash" role="tab" data-toggle="tab">bash escape codes</a></li>
+                <li role="presentation" class="active"><a href="#bash" aria-controls="bash" role="tab" data-toggle="tab">bash</a></li>
                 <li role="presentation"><a href="#zbash" aria-controls="zbash" role="tab" data-toggle="tab">.z/bash_colors</a></li>
               </ul>
 
               <!-- Tab panes -->
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="bash">
-                  <input type="text" id="ps1-bash-output" class="form-control input-md dark-input expander" value=""/>
+                  <textarea type="text" id="ps1-bash-output" class="form-control input-md dark-input expander" value=""></textarea>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="zbash">
-                  <input type="text" id="ps1-output" class="form-control input-md dark-input expander" value=""/>
-                  <h4>Human readable color aliases for bash, available in my <a href="http://github.com/z/dotfiles/blob/master/.bash_aliases" target="_blank">.bash_aliases</a></h4>
+                  <textarea type="text" id="ps1-output" class="form-control input-md dark-input expander" value=""></textarea>
+                  <p style="margin-top:10px;">Aliases available in my <a href="http://github.com/z/dotfiles/blob/master/.bash_aliases" target="_blank">.bash_aliases</a></p>
                 </div>
               </div>
 
-            </div>
-
-            <div>
-
-
-
-
-            </div>
+            </div><!-- alias-outputs -->
 
           </div><!-- .col -->
-        </div><!-- .row -->
+         </div><!-- .row -->
 
-      </div><!-- .starter-template -->
+      </div><!-- .content -->
 
-    </div><!-- /.container -->
+    </div><!-- .container -->
 
     <footer>
       <div id="copyright">

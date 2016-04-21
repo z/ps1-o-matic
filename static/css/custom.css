@@ -26,21 +26,21 @@ body {
 }
 
 #random-colors {
-    margin: 10px 0 20px;
+    margin: 10px 0;
 }
 
 #info, #reset-colors {
     margin-top: 20px;
 }
 
-.expander {
-    width: 300px;
+textarea.expander {
+    height: 80px;
     -webkit-transition: all .5s ease;
    -moz-transition: all .5s ease;
    transition: all .5s ease;
 }
 .expander:focus {
-    width: 100%;
+    height: 100px;
 }
 
 #ps1-generator {
