@@ -198,8 +198,12 @@ $(function () {
   });
 
   $('#reset-colors').click(function(){
-    $('#ps1-generator').css({ 'background-color': '#000000', 'color': '#c8c8c8'});
-    $('.NC').css({ 'color': '#c8c8c8'});
+    var fgColor = 'c8c8c8';
+    var bgColor = '000000';
+    $('#ps1-generator').css({ 'background-color': bgColor, 'color': fgColor });
+    $('.NC').css({ 'color': fgColor});
+    $('#foreground-picker').colorpicker('setValue', fgColor);
+    $('#background-picker').colorpicker('setValue', bgColor);
   });
 
 });
