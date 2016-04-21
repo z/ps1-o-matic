@@ -41,20 +41,27 @@
           </div><!-- .col -->
           <div class="col-sm-12 col-md-3">
 
-            <h3>Foreground</h3>
-            <input id="foreground-picker" type="text" class="form-control dark-input" value="#c8c8c8" />
+            <div class="row">
+              <div class="col-md-6">
+                <h5>Foreground</h5>
+                <input id="foreground-picker" type="text" class="form-control dark-input" value="#c8c8c8" />
+              </div>
+              <div class="col-md-6">
+                <h5>Background</h5>
+                <input id="background-picker" type="text" class="form-control dark-input" value="#272b30" />
+              </div>
+            </div>
 
-            <h3>Background</h3>
-            <input id="background-picker" type="text" class="form-control dark-input" value="#272b30" />
-
-            <button id="reset-colors" class="btn btn-sm btn-primary">Reset <i class="icon icon-undo"></i> </button>
-
-            <div id="info" class="well">
-              <p>The default color palette is "Tango".</p>
+            <div class="text-center">
+              <button id="reset-colors" class="btn btn-sm btn-default">Reset ENV Colors <i class="icon icon-undo"></i></button>
             </div>
 
             <div class="text-center">
               <button id="random-colors" class="btn btn-md btn-primary">Random PS1 Colors <i class="icon icon-shuffle"></i> </button>
+            </div>
+
+            <div id="info" class="well">
+              <p>The color palette being shown is Tango.</p>
             </div>
 
           </div><!-- .col -->

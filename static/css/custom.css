@@ -1,8 +1,7 @@
 :active, :focus { outline: none; }
 
 body {
-    font-family: courier;
-    font-weight: bold;
+
 }
 
 .ps1-brand {
@@ -26,11 +25,13 @@ body {
     color: #444;
 }
 
-#info, #reset-colors {
+#info, #reset-colors, #random-colors {
     margin-top: 20px;
 }
 
 #ps1-generator {
+    font-family: courier;
+    font-weight: bold;
     min-height: 535px;
     min-width: 710px;
     font-size: 22px;
