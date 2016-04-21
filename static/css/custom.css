@@ -132,12 +132,30 @@ textarea.expander {
     background-color: #000;
 }
 
+.tab-content>.active {
+    display: block;
+    background: #3e444c;
+    border: 1px solid #1c1e22;
+    border-radius: 0 4px 4px 4px;
+}
+
+.nav-tabs>li>a {
+    margin-bottom: -1px;
+}
+
 .tab-pane {
     padding:20px 5px;
 }
 
+.tab-content p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
 footer {
     position: fixed;
+    width: 100%;
     bottom: 0;
     left: 10px;
 }
