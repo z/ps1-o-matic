@@ -10,22 +10,34 @@ body {
     font-weight: bold;
 }
 
-#ps1-output, #ps1-bash-output {
+.dark-input {
     background: #111;
     color: #ccc;
     border-color: #555;
 }
 
-#reset-colors {
+.lookup {
+    background-color:#111;
+    margin-right: 10px !important;
+    padding: 0 10px !important;
+}
+
+#lookup-first {
+    color: #444;
+}
+
+#info, #reset-colors {
     margin-top: 20px;
 }
 
 #ps1-generator {
     min-height: 535px;
+    min-width: 710px;
     font-size: 22px;
     background: #000;
     padding: 0.5em;
     border: 2px solid #444;
+    border-radius: 10px;
 }
 
 #alias-outputs {

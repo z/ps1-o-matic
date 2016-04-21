@@ -29,7 +29,7 @@
 
       <div class="content">
 
-        <h1><i class="icon icon-terminal"></i> <span class="ps1-brand">PS1-O-MATIC</span> <button id="random-colors" class="btn btn-lg btn-primary pull-right">Random <i class="icon icon-shuffle"></i> </button></h1>
+        <h1><i class="icon icon-terminal"></i> <span class="ps1-brand">PS1-O-MATIC</span></h1>
 
         <div class="row">
           <div class="col-sm-12 col-md-9">
@@ -42,12 +42,20 @@
           <div class="col-sm-12 col-md-3">
 
             <h3>Foreground</h3>
-            <input id="foreground-picker" type="text" class="form-control" value="#c8c8c8" />
+            <input id="foreground-picker" type="text" class="form-control dark-input" value="#c8c8c8" />
 
             <h3>Background</h3>
-            <input id="background-picker" type="text" class="form-control" value="#272b30" />
+            <input id="background-picker" type="text" class="form-control dark-input" value="#272b30" />
 
-            <button id="reset-colors" class="btn btn-sm btn-primary pull-right">Reset <i class="icon icon-undo"></i> </button>
+            <button id="reset-colors" class="btn btn-sm btn-primary">Reset <i class="icon icon-undo"></i> </button>
+
+            <div id="info" class="well">
+              <p>The default color palette is "Tango".</p>
+            </div>
+
+            <div class="text-center">
+              <button id="random-colors" class="btn btn-md btn-primary">Random PS1 Colors <i class="icon icon-shuffle"></i> </button>
+            </div>
 
           </div><!-- .col -->
          </div><!-- .row -->
@@ -58,10 +66,10 @@
             <div id="alias-outputs">
 
               <h4>standard bash escape codes</h4>
-              <input type="text" id="ps1-bash-output" class="form-control input-md" value=""/>
+              <input type="text" id="ps1-bash-output" class="form-control input-md dark-input" value=""/>
 
               <h4>.z/<a href="http://github.com/z/dotfiles/blob/master/.bash_aliases" target="_blank">bash_colors</a></h4>
-              <input type="text" id="ps1-output" class="form-control input-md" value=""/>
+              <input type="text" id="ps1-output" class="form-control input-md dark-input" value=""/>
 
             </div>
 

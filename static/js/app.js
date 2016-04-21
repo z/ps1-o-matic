@@ -95,7 +95,7 @@ function init_colorizer(segment) {
       segment.output + '</a>' +
       '<ul id="' + segment.name + '-color" class="segment"></ul>' +
     '</li>');
-  
+
   // build select boxes
   for (var name in tango) {
     $('#' + segment.name + '-color').append('<li><a href="' + tango[name] + '" class="' + name + '" title="' + name + '">' + segment.output + '</a></li>');
@@ -157,6 +157,21 @@ var segments = {
 var ps1 = new group("PS1", tango, segments);
 
 $(function () {
+
+  var lookup = 'lookup';
+
+  $("#color-selectors")
+    .append('<li class="lookup">' +
+      '<a href="" id="' + lookup + '-first" class="text-center">' +
+      'index' + '</a>' +
+      '<ul id="' + lookup + '-color" class="segment"></ul>' +
+    '</li>');
+
+  // build select boxes
+  for (var name in tango) {
+    $('#' + lookup + '-color').append('<li><a href="' + tango[name] + '" class="' + name + '" title="' + name + '">' + name + '</a></li>');
+    $('#' + lookup + '-color li:last-child a').css("color", tango[name]);
+  }
 
   // initalize all colorizers
   for (var name in segments) {
