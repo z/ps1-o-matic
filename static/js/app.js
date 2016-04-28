@@ -68,6 +68,7 @@ function group(name, colorscheme, segments) {
   this.colorscheme = colorscheme;       // color scheme for output
   this.output_zcolors = output_zcolors;  // stitch together ouputs
   this.output_bash = output_bash;        // stitch together ouputs
+  this.output_hash = output_hash;        // stitch together ouputs
 }
 
 function output_zcolors() {
@@ -84,6 +85,24 @@ function output_bash() {
     r += '\\[' + bash_colors[segments[name].color] + '\\]' + segments[name].code;
   }
   return r;
+}
+
+function output_hash() {
+  var r = "";
+  for (var name in this.segments) {
+    r += '#' + name + '-' + segments[name].color;
+  }
+  return r;
+}
+
+function input_hash(hash) {
+  var segments = hash.split('#');
+  $.each(segments, function(index, value) {
+    if (value) {
+      var k = value.split('-');
+      $('#' + k[0] + '-color .' + k[1]).click();
+    }
+  });
 }
 
 // build the color selector and actions of it
@@ -103,7 +122,9 @@ function init_colorizer(segment) {
   }
 
   // set change action
-  $('#' + segment.name + '-color a').click(function () {
+  $('#' + segment.name + '-color a').click(function(e) {
+    e.preventDefault();
+
     $('#' + segment.name + '-color a').removeClass("selected");
     $(this).addClass("selected");
     $(segment.name).css("color", $(this).attr("href"));
@@ -116,13 +137,10 @@ function init_colorizer(segment) {
     // set appended textbox values to visible textbox
     $('#ps1-output').val('PS1="' + ps1.output_zcolors() + '"');
     $('#ps1-bash-output').val('PS1="' + ps1.output_bash() + '"');
-  });
 
-  if (segment.name == 'text_output') {
-    set_color(segment.name, 0);
-  } else {
-    random_color(segment.name);
-  }
+    location.hash = ps1.output_hash();
+
+  });
 
 }
 
@@ -134,6 +152,7 @@ function random_color(name) {
 function set_color(name, color) {
   $('#' + name + '-color li:eq(' + color + ') a').addClass("selected").click();
 }
+
 function random_colors() {
   for (var name in segments) {
     if (name == 'text_output') {
@@ -205,5 +224,11 @@ $(function () {
     $('#foreground-picker').colorpicker('setValue', fgColor);
     $('#background-picker').colorpicker('setValue', bgColor);
   });
+
+  if (location.hash.length > 20) { // whatever
+    input_hash(location.hash);
+  } else {
+    random_colors();
+  }
 
 });
