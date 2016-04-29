@@ -88,15 +88,16 @@ function output_bash() {
 }
 
 function output_hash() {
-  var r = "";
+  var r = "#";
   for (var name in this.segments) {
-    r += '#' + name + '-' + segments[name].color;
+    r += '/' + name + '-' + segments[name].color;
   }
   return r;
 }
 
 function input_hash(hash) {
-  var segments = hash.split('#');
+  hash = hash.slice(1);
+  var segments = hash.split('/');
   $.each(segments, function(index, value) {
     if (value) {
       var k = value.split('-');
